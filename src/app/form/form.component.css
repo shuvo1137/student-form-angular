@@ -1,0 +1,12 @@
+.heading h1 {
+  text-align: center;
+  color: cadetblue;
+  padding-left: 150px;
+}
+row .heading .header {
+  background-color: aqua;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}

@@ -1,0 +1,14 @@
+<div *ngIf="studentDetails" class="container">
+  <div class="row mt-1">
+    <span class="" style="text-align: center">
+      <h3>{{ studentDetails.firstName }} {{ studentDetails.lastName }}</h3>
+      <hr />
+      <div class="list-group-item mt-5">
+        <p><strong>Address :</strong> {{ studentDetails.address }}</p>
+
+        <p><strong>Email :</strong> {{ studentDetails.email }}</p>
+        <p><strong>Age :</strong> {{ studentDetails.age }}</p>
+      </div>
+    </span>
+  </div>
+</div>

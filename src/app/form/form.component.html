@@ -1,0 +1,76 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row heading">
+    <div class="col-md-6 br-2">
+      <span class="header">
+        <h1 style="width: 350px">Welcome to the Student Info System</h1>
+        <hr />
+      </span>
+    </div>
+
+    <div class="col-md-6">
+      <form
+        class="row g-3 mt-5"
+        [formGroup]="studentForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="col-md-6">
+          <label for="firstName" class="form-label">firstName</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            formControlName="firstName"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="lastName" class="form-label">LastName</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            formControlName="lastName"
+          />
+        </div>
+        <div class="col-12">
+          <label for="address" class="form-label">Address</label>
+          <input
+            type="text"
+            class="form-control"
+            id="address"
+            formControlName="address"
+          />
+        </div>
+        <div class="col-12">
+          <label for="email" class="form-label">email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            formControlName="email"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="age" class="form-label">Age</label>
+          <input
+            type="text"
+            class="form-control"
+            id="age"
+            formControlName="age"
+          />
+        </div>
+        <div class="col-12">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!studentForm.valid"
+          >
+            Register
+          </button>
+        </div>
+        <p *ngIf="isSubmitted">Submitted Successfully</p>
+        <p *ngIf="errorMsg">{{ errorMsg }}</p>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Student List</h1>
+      <div class="Studentlist">
+        <ul class="list-group">
+          <li
+            class="list-group-item list-group-item-info mb-5"
+            *ngFor="let list of lists; let i = index"
+          >
+            <button
+              [class.selected]="list === selectedStudent"
+              type="button"
+              (click)="viewDetails(list)"
+              routerLink="{{ i }}"
+            >
+              {{ list.firstName }} {{ list.lastName }}
+            </button>
+          </li>
+        </ul>
+      </div>
+      <!-- <button class="btn btn-danger" (click)="viewhttp()">http details</button> -->
+    </div>
+    <div class="col-md-6">
+      <!-- <app-detail
+        *ngIf="isCliked"
+        [studentDetails]="selectedStudent"
+      ></app-detail> -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
