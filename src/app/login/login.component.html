@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light" style="background-color: #e3f2fd">
   <div class="container-fluid">
     <a class="navbar-brand">Student Reg</a>
     <form class="d-flex" [formGroup]="loginForm" (ngSubmit)="onLogin()">
@@ -38,37 +38,58 @@
     </div>
     <div class="col-xs-6 col-md-6 col-sm-6">
       <div class="login-form mt-5">
-        <form>
-          <div class="form-group">
-            <label>User Name</label>
+        <form
+          class="row g-3"
+          [formGroup]="regForm"
+          (ngSubmit)="onRegistration()"
+        >
+          <div class="col-md-8">
+            <label for="username" class="form-label">Username</label>
             <input
               type="text"
               class="form-control"
-              placeholder="User Name"
-              formControlName="regUuser"
+              id="username"
+              formControlName="username"
             />
           </div>
-          <div class="form-group">
-            <label>Password</label>
+          <div class="col-md-8">
+            <label for="password" class="form-label">Password</label>
             <input
               type="password"
               class="form-control"
-              placeholder="Password"
-              formControlName="regi"
+              id="password"
+              formControlName="password"
             />
           </div>
-          <button
-            type="submit"
-            class="btn btn-success"
-            type="submit"
-            [disabled]="!loginForm.valid"
-          >
-            Register
-          </button>
+          <!-- <div class="col-md-8">
+            <label for="role" class="form-label">Role</label>
+            <input
+              type="text"
+              class="form-control"
+              id="role"
+              placeholder="Put ur role"
+              formControlName="role"
+            />
+          </div> -->
+          <div class="col-md-5">
+            <label for="role" class="form-label">Role</label>
+            <select id="role" class="form-select" formControlName="role">
+              <!-- <option selected>Choose role</option> -->
+              <option>USER</option>
+              <option>ADMIN</option>
+            </select>
+          </div>
 
-          <!-- <p *ngIf="!loginForm.valid">
-            please Enter your Username and Password
-          </p> -->
+          <div class="col-12">
+            <button type="submit" class="btn btn-outline-success">
+              Register
+            </button>
+          </div>
+          <span class="regComplete">
+            <p style="color: green" *ngIf="isCompleted">
+              Registration done successfully
+            </p>
+          </span>
         </form>
       </div>
     </div>

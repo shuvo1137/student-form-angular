@@ -27,8 +27,14 @@ export class AuthService {
     const headers = new HttpHeaders({
       Authorization: 'Basic ' + btoa(userName + ':' + password),
     });
-    return this.http.get('http://localhost:8080/info/login', {
+    return this.http.get('http://localhost:8080/info', {
       headers,
+      responseType: 'text' as 'json',
+    });
+  }
+
+  public registration(form: any) {
+    return this.http.post('http://localhost:8080/list/add', form, {
       responseType: 'text' as 'json',
     });
   }

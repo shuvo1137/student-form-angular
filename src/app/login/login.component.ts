@@ -10,12 +10,14 @@ import { AuthService } from '../shared/auth.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup = null;
+  regForm: FormGroup = null;
   token: number;
   isValid = true;
   userName: string;
   password: string;
   message: string;
   error: boolean;
+  isCompleted: boolean = false;
 
   constructor(
     private router: Router,
@@ -27,6 +29,11 @@ export class LoginComponent implements OnInit {
     this.loginForm = new FormGroup({
       userName: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required),
+    });
+    this.regForm = new FormGroup({
+      username: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required),
+      role: new FormControl(null, Validators.required),
     });
     this.token = null;
     this.isValid = true;
@@ -59,6 +66,24 @@ export class LoginComponent implements OnInit {
     } else {
       this.isValid = false;
     }
+  }
+
+  onRegistration() {
+    console.log(this.regForm);
+    this.isCompleted = true;
+
+    let res = this.authService.registration(this.regForm.value);
+    res.subscribe(
+      (data) => {
+        this.regForm.reset();
+        console.log(data);
+        this.isCompleted = true;
+      },
+      (error) => {
+        console.log('jhamela ase');
+      }
+    );
+    console.log(this.regForm.value);
   }
 
   // onLogin() {

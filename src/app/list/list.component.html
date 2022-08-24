@@ -9,14 +9,14 @@
             class="list-group-item list-group-item-info mb-5"
             *ngFor="let list of lists; let i = index"
           >
-            <button
+            <a
               [class.selected]="list === selectedStudent"
               type="button"
               (click)="viewDetails(list)"
               routerLink="{{ i }}"
             >
               {{ list.firstName }} {{ list.lastName }}
-            </button>
+            </a>
           </li>
         </ul>
       </div>
